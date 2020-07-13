@@ -10,4 +10,8 @@ const gradesSchema = mongoose.Schema(
   }
 );
 
+gradesSchema.set('toJSON', { getters: true, virtuals: true });
+
+gradesSchema.virtual('id').get( function() { return this._id});
+
 export default mongoose.model('grades', gradesSchema,'grades');
